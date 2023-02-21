@@ -4,5 +4,4 @@ db.sqlite3
 cache
 .idea
 static/CACHE
-.env
 venv
