@@ -4,4 +4,6 @@ db.sqlite3
 cache
 .idea
 static/CACHE
+.venv
 venv
+venv/

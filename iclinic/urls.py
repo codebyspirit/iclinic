@@ -4,10 +4,14 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from authentication import views
+
 from rest_framework_swagger.views import get_swagger_view
 schema_view = get_swagger_view(title='iclinic API documentation')
 
 urlpatterns = [
+
+	path('login/', views.LoginView.as_view()),
 
 	# DOCUMENTATION
 	path('api/docs/', schema_view),
