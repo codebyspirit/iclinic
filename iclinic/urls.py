@@ -12,7 +12,10 @@ schema_view = get_swagger_view(title='iclinic API documentation')
 urlpatterns = [
 
 	path('login/', views.LoginView.as_view()),
+	path('profile/', views.ProfileView.as_view()),
 
+
+	
 	# DOCUMENTATION
 	path('api/docs/', schema_view),
 
