@@ -42,7 +42,7 @@ INSTALLED_APPS += [
     'rest_framework',
     'rest_framework_swagger', #DOCUMENTATION DES APIS
 
-    'authentication',
+    #'authentication',
 
     'parametre',
 
