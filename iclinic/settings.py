@@ -44,7 +44,6 @@ INSTALLED_APPS += [
 
     'authentication',
 
-
     'parametre',
 
 ]
@@ -112,6 +111,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+REST_FRAMEWORK = { 
+    
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema', 
+}
+
+"""
 REST_FRAMEWORK = { 
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.SessionAuthentication',
@@ -124,7 +130,7 @@ REST_FRAMEWORK = {
     ],
 }
 
-
+"""
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
@@ -152,4 +158,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
+
+
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+
+
+
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
