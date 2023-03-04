@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-(9xeznhsi6p2xeomq16ju_0#5#90py(hgd(&@ath^i+=j^-kow
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*', 'codebyspirit.pythonanywhere.com',]
 
 
 # Application definition
@@ -114,23 +114,22 @@ AUTH_PASSWORD_VALIDATORS = [
 
 REST_FRAMEWORK = { 
     
-    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema', 
-}
+    #'DEFAULT_AUTHENTICATION_CLASSES': [
+    #    'rest_framework.authentication.SessionAuthentication',
+    #],
 
-"""
-REST_FRAMEWORK = { 
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.SessionAuthentication',
-    ],
-
-    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema', 
+    #'DEFAULT_AUTHENTICATION_CLASSES': [
+    #        'rest_framework.authentication.SessionAuthentication',
+    #    ],
 
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ],
+
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema', 
+
 }
 
-"""
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/

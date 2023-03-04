@@ -3,18 +3,17 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-
 from rest_framework_swagger.views import get_swagger_view
 schema_view = get_swagger_view(title='iclinic API documentation')
 
-
 from rest_framework import routers
+
+from authentication.urls import router as authentication_router
 from parametre.urls import router as parametre_router
 
-
 router = routers.DefaultRouter()
+router.registry.extend(authentication_router.registry)
 router.registry.extend(parametre_router.registry)
-
 
 urlpatterns = [
 
