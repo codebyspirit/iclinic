@@ -7,13 +7,18 @@ import jwt, datetime
 
 #from validate_email import validate_email
 from email_validator import validate_email, EmailNotValidError
-
 from django.core.exceptions import ValidationError
 
 
 class RegisterView(APIView):
     def post(self, request):
         serializer = UserSerializer(data=request.data)
+        try:
+            v = validate_email(request.data['email'])
+            email = v["email"] 
+        except EmailNotValidError as e:
+            raise AuthenticationFailed(str(e))
+
         if serializer.is_valid(raise_exception=True):
             serializer.save()
         return Response(serializer.data)
