@@ -1,13 +1,12 @@
 from django.urls import path
-from connexion.views import RegisterView, UserView, LoginView, LogoutView
+from connexion.views import RegisterAPIView, UserAPIView, LoginAPIView, LogoutAPIView
 
 
 app_name="connexion"
 urlpatterns = [
-	path('registers', RegisterView.as_view()),
-    path('users', UserView.as_view()),
-    path('', LoginView.as_view()),
-	path('login', LoginView.as_view()),
-    path('logout', LogoutView.as_view()),
-
+	path('registers', RegisterAPIView.as_view()),
+    path('users', UserAPIView.as_view()),
+    path('', LoginAPIView.as_view()),
+	path('login', LoginAPIView.as_view()),
+	path('logout', LogoutAPIView.as_view()),
 ]
