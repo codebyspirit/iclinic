@@ -9,9 +9,8 @@ from django.contrib.auth.validators import UnicodeUsernameValidator
 from django.utils.translation import gettext_lazy as _
 import jwt
 from django.conf import settings
-
 from email_validator import validate_email, EmailNotValidError
-# Create your models 
+# Create your models
 from django.core.validators import RegexValidator
 from django.core.exceptions import ValidationError
 
@@ -73,6 +72,7 @@ class User(AbstractBaseUser, PermissionsMixin, TrackingModel):
             "unique": _("A user with that username already exists."),
         },
     )
+
     email = models.EmailField(_("email address"), blank=False, unique=True,
         validators=[RegexValidator(
         r'^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$',
@@ -115,8 +115,9 @@ class User(AbstractBaseUser, PermissionsMixin, TrackingModel):
     def clean(self):
         if not verifier():
             raise ValidationError('incorret email')
-    """
-    
+    """   
     def save(self, *args, **kwargs):
         self.full_clean()
         return super().save(*args, **kwargs)
+
+        
